@@ -15,10 +15,11 @@ library("tidyverse")
 ```{r}
 soydata <- read.csv("./soydata.csv")
 soydatadead <- read.csv("./soydatadead.csv")
+soydatalive <- read.csv("./soydatalive.csv")
 ```
 
 # Hypothesis 1: pH affects plant health in absence of microbes
 ```{r}
 aov.dead.pH <- aov(chloro2 ~ pH, data=soydatadead)
-summary(aov.dead.pH)
+summary(aov.dead.pH) # p=0.781, not sig
 ```
