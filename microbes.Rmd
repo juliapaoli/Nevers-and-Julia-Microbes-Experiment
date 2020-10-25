@@ -17,3 +17,8 @@ soydata <- read.csv("./soydata.csv")
 soydatadead <- read.csv("./soydatadead.csv")
 ```
 
+# Hypothesis 1: pH affects plant health in absence of microbes
+```{r}
+aov.dead.pH <- aov(chloro2 ~ pH, data=soydatadead)
+summary(aov.dead.pH)
+```
