@@ -15,10 +15,32 @@ library("tidyverse")
 ```{r}
 soydata <- read.csv("./soydata.csv")
 soydatadead <- read.csv("./soydatadead.csv")
+soydatalive <- read.csv("./soydatalive.csv")
+
 ```
 
 # Hypothesis 1: pH affects plant health in absence of microbes
 ```{r}
 aov.dead.pH <- aov(chloro2 ~ pH, data=soydatadead)
-summary(aov.dead.pH)
+summary(aov.dead.pH) # p=0.781, not sig
 ```
+
+# Hypothesis 2: pH affects plant health in presnce of microbes
+```{r}
+aov.live.pH <- aov(chloro2 ~ pH, data=soydatalive)
+summary(aov.live.pH) # p=0.895, not sig
+```
+
+# Hypothesis 3: presence/absence of microbes affects plant health in neutral pH
+```{r}
+aov.neutral.microbe <- aov(chloro2 ~ microbe, data=soydataneutral)
+summary(aov.neutral.microbe)
+```
+
+# Hypothesis 4: presence/absence of microbes affects plant health in acidic pH
+```{r}
+aov.acidic.microbe <- aov(chloro2 ~ microbe, data=soydataacidic)
+summary(aov.acidic.microbe)
+```
+
+chisq.test(array)
