@@ -14,6 +14,6 @@ library("tidyverse")
 # Load data
 ```{r}
 soydata <- read.csv("./soydata.csv")
-
+soydatadead <- read.csv("./soydatadead.csv")
 ```
 
